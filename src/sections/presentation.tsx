@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Divisor } from "./home";
 import { StyledText, StyledTittle } from "../components/texts";
+import { useObserver } from "../common/observer";
 
 const StyledImg = styled.img`
     height: 55%;
@@ -8,6 +8,21 @@ const StyledImg = styled.img`
     border-radius: 15px;   
     border: 2px white solid;
 `
+
+const Divisor = styled.div<{visible: Boolean}>`
+  display: flex;
+  flex-direction: row;
+  gap: 20rem;
+  align-items: center;
+  height: 100vh;
+
+  & > * {
+    opacity: ${({ visible }) => (visible ? 1 : 0)};
+    transform: ${({ visible }) => visible ? "translateX(0)" : "translateX(-30rem)"};    
+    transition: all 2s ease;
+  }
+`;
+
 
 const TextContainer = styled.div`
     max-width: 50%;
@@ -19,8 +34,9 @@ const TextContainer = styled.div`
 `
 
 export const Presentation = () => {
+    const {ref, visible} = useObserver();
     return (
-        <Divisor>
+        <Divisor ref={ref} visible={visible}>
             <StyledImg src="/Photo_Two.jpeg"/>
             <TextContainer>
                 <StyledTittle>Presentation</StyledTittle>

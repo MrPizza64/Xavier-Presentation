@@ -1,8 +1,17 @@
 import styled from "styled-components"
 import { StyledText, StyledTittle } from "../components/texts"
+import { useObserver } from "../common/observer"
 
-const Section = styled.div`
+const Section = styled.div<{visible: Boolean}>`
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & {
+        opacity: ${({ visible }) => (visible ? 1 : 0)};
+        transition: all 5s ease;
+    }
 `
 
 const StyledLine = styled.div`
@@ -19,8 +28,9 @@ const KnowledgesBox = styled.div`
 `
 
 export const Knowledge = () => {
+    const {ref, visible} = useObserver();
     return (
-        <Section>
+        <Section ref={ref} visible={visible}>
             <StyledTittle>Knowledges</StyledTittle>
             <StyledLine />
             <KnowledgesBox>

@@ -5,6 +5,7 @@ import { Home } from './sections/home'
 import { Presentation } from './sections/presentation'
 import { Knowledge } from './sections/knowledge'
 import { Contact } from './sections/contact'
+import { useRef } from 'react'
 
 const AppContainer = styled.div`
   margin-left: 10rem;
@@ -12,14 +13,28 @@ const AppContainer = styled.div`
 `
 
 function App() {
+  const homeRef = useRef<HTMLDivElement | null>(null);
+  const presentationRef = useRef<HTMLDivElement | null>(null);
+  const knowledgeRef = useRef<HTMLDivElement | null>(null);
+  const contactReft = useRef<HTMLDivElement | null>(null);
+
+  const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <>
-      <Navbar/>
+      <Navbar
+        home={()=> scrollTo(homeRef)}
+        presentation={()=> scrollTo(presentationRef)}
+        knowledge={()=> scrollTo(knowledgeRef)}
+        contact={()=> scrollTo(contactReft)}
+      />
       <AppContainer>
-        <Home/>
-        <Presentation/>
-        <Knowledge/>
-        <Contact/>
+        <div ref={homeRef}><Home/></div>
+        <div ref={presentationRef}><Presentation/></div>
+        <div ref={knowledgeRef}><Knowledge/></div>
+        <div ref={contactReft}><Contact/></div>
       </AppContainer>
     </>
   )

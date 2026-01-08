@@ -1,17 +1,25 @@
 import styled from "styled-components"
 import { Button } from "../components/button"
 import { StyledText, StyledTittle } from "../components/texts"
-
-const Section = styled.div`
+import { useObserver } from "../common/observer"
+const Section = styled.div<{visible: Boolean}>`
     height: 100vh;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    justify-content: center;
     align-items: center;
+
+    & > * {
+        opacity: ${({ visible }) => (visible ? 1 : 0)};
+        transform: ${({ visible }) => visible ? "translateX(0)" : "translateX(3rem)"};    
+        transition: all 3s ease;
+    }
 `
 export const Contact = () => {
+    const {ref, visible} = useObserver();
     return (
-        <Section>
+        <Section ref={ref} visible={visible}>
             <StyledTittle>My Contact</StyledTittle>
             <StyledText>
                 If you want to contact with me you can send me a email to xavier.w3b.contact@gmail.com
