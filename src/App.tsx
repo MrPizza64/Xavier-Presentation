@@ -2,10 +2,11 @@ import styled from 'styled-components'
 import './App.css'
 import { Navbar } from './components/navbar'
 import { Home } from './sections/home'
+import { Presentation } from './sections/presentation'
 
 const AppContainer = styled.div`
-  margin-left: 5rem;
-  margin-right: 5rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
 `
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Navbar/>
       <AppContainer>
         <Home/>
+        <Presentation/>
       </AppContainer>
     </>
   )

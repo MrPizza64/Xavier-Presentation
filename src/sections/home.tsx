@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { StyledText, StyledTittle } from "../components/texts"
 import { palette } from "../common/styles"
+
 const TextContainer = styled.div`
     width:50%;
     display:flex;
@@ -25,7 +26,7 @@ const HeaderText = styled.p`
     font-size: 1.5rem;
 `
 
-const Divisor = styled.div`
+export const Divisor = styled.div`
     display: flex;
     flex-direction: row;
     gap: 20rem;
@@ -35,7 +36,7 @@ const Divisor = styled.div`
 
 const StyledPhoto = styled.img`
     height: 50%;
-    width: 28%;
+    width: 30%;
     border-radius: 0.5rem;
     border: 2px solid white;
 `
@@ -54,7 +55,7 @@ export const Home = () => {
                     in this project you will find more information about me and my skills.
                 </StyledText>
             </TextContainer>
-            <StyledPhoto src="./public/Photo_One.jpeg"/>
+            <StyledPhoto src="/Photo_One.jpeg"/>
         </Divisor>
     )
 }
