@@ -7,6 +7,7 @@ const NavBar = styled.div`
     position:fixed;
     justify-content: end;
     width: 100%;
+    background-color: #0A0D16;
     box-sizing: border-box;
 `
 
