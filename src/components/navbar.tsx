@@ -9,15 +9,22 @@ const NavBar = styled.div`
     width: 100%;
     background-color: #0A0D16;
     box-sizing: border-box;
+    z-index: 1;
 `
+interface NavbarProps {
+    home: () => void,
+    presentation: () => void,
+    knowledge: () => void,
+    contact: () => void,
+}
 
-export const Navbar = () => {
+export const Navbar = ({home, presentation, knowledge, contact}: NavbarProps) => {
     return (
         <NavBar>
-            <Button variant='second'>Home</Button>
-            <Button variant='second'>Presentation</Button>
-            <Button variant='second'>Knowledges</Button>
-            <Button>CONTACT ME</Button>
+            <Button variant='second' onClick={home}>Home</Button>
+            <Button variant='second' onClick={presentation}>Presentation</Button>
+            <Button variant='second' onClick={knowledge}>Knowledges</Button>
+            <Button onClick={contact}>CONTACT ME</Button>
             </NavBar>
     )
 };

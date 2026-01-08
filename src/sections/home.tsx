@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { StyledText, StyledTittle } from "../components/texts"
 import { palette } from "../common/styles"
-
+import { useObserver } from "../common/observer"
 const TextContainer = styled.div`
     width:50%;
     display:flex;
@@ -26,12 +26,33 @@ const HeaderText = styled.p`
     font-size: 1.5rem;
 `
 
-export const Divisor = styled.div`
+const Divisor = styled.div<{visible: Boolean}>`
     display: flex;
     flex-direction: row;
     gap: 20rem;
     align-items: center;
     height: 100vh;
+
+    & {
+        opacity: ${({ visible }) => (visible ? 1 : 0)};
+        transform: ${({ visible }) =>
+        visible ? "translateY(0)" : "translateY(-30rem)"};
+        transition: all 2s ease;
+    }
+
+    & > * > * > * {
+        opacity: ${({ visible }) => (visible ? 1 : 0)};
+        transform: ${({ visible }) =>
+        visible ? "translateY(0)" : "translateY(-30rem)"};
+        transition: all 2.5s ease;
+    }
+
+    & > * > * > * > * {
+        opacity: ${({ visible }) => (visible ? 1 : 0)};
+        transform: ${({ visible }) =>
+        visible ? "translateY(0)" : "translateY(-30rem)"};
+        transition: all 2.75s ease;
+    }
 `
 
 const StyledPhoto = styled.img`
@@ -42,8 +63,9 @@ const StyledPhoto = styled.img`
 `
 
 export const Home = () => {
+    const {ref, visible} = useObserver();
     return (
-        <Divisor>
+        <Divisor ref={ref} visible={visible}>
             <TextContainer>
                 <HeaderContainer>
                     <StyledLine/>
