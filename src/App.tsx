@@ -8,8 +8,8 @@ import { Contact } from './sections/contact'
 import { useRef } from 'react'
 
 const AppContainer = styled.div`
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
 `
 
 function App() {

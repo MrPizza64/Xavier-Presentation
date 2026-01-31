@@ -9,6 +9,7 @@ const Section = styled.div<{visible: Boolean}>`
     gap: 2rem;
     justify-content: center;
     align-items: center;
+    text-align: center;
 
     & > * {
         opacity: ${({ visible }) => (visible ? 1 : 0)};

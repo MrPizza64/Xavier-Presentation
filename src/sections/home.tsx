@@ -57,7 +57,7 @@ const Divisor = styled.div<{visible: Boolean}>`
 
 const StyledPhoto = styled.img`
     height: 50%;
-    width: 30%;
+    width: 40%;
     border-radius: 0.5rem;
     border: 2px solid white;
 `

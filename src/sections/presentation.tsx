@@ -4,7 +4,7 @@ import { useObserver } from "../common/observer";
 
 const StyledImg = styled.img`
     height: 55%;
-    width: 30%;
+    width: 40%;
     border-radius: 15px;   
     border: 2px white solid;
 `
